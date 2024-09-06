@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Error</title>
+
+</head>
+<body>
+    <div class="container" style="width: 100%; text-align: center; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+        <h1 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">An Error Occurred</h1>
+        <p>Sorry, something went wrong while processing your request.</p>
+        <p><strong>Error Message:</strong> {{ error_message }}</p>
+        <a href="{% url 'ageis_app:index' %}">Go back to home page</a>
+    </div>
+</body>
+</html>
