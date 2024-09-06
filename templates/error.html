@@ -2,14 +2,35 @@
 <html>
 <head>
     <title>Error</title>
-
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+    <style>
+        .btn-special{
+  background:#1b61a6 !important;
+  color: #fff !important;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  border: none;
+}
+.btn-special:hover{
+    background:#3186db !important; 
+}
+    </style>
 </head>
 <body>
     <div class="container" style="width: 100%; text-align: center; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-        <h1 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">An Error Occurred</h1>
+        
+        <dotlottie-player src="https://lottie.host/50e2e6be-2b21-4e2a-93b8-0642278021f6/L4Vqu4zgMF.json" background="transparent" speed="1" style="width: 600px; height: 600px; margin: auto;" direction="1" playMode="normal" loop autoplay></dotlottie-player>
+        <h1 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Sorry an error has occurred !!</h1>
         <p>Sorry, something went wrong while processing your request.</p>
         <p><strong>Error Message:</strong> {{ error_message }}</p>
-        <a href="{% url 'ageis_app:index' %}">Go back to home page</a>
+        <a href="{% url 'ageis_app:index' %}" style="background:#fff;">
+            <button class="btn btn-special" >
+                 Back to home 
+            </button>
+            </a>
     </div>
 </body>
 </html>
