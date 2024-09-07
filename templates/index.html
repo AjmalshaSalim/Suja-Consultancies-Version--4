@@ -793,33 +793,60 @@ background: #3186db;
 <!-- Newly Added Jobs -->
 
 <!-- Job categories -->
-<section class="categories-section pb-0" style="background-image: url(../static/assets/images/abstract-squares.jpg); background-size: cover;">
-    <div class="container">
+<section class="categories-section pb-4" style="background-image: url(../static/assets/images/abstract-squares.jpg); background-size: cover;">
+    <div class="container" style="position: relative;" >
         <div class="section-title text-center">
-            <h2> Job Categories</h2>
+            <h2>Job Categories</h2>
         </div>
-        <div class="row">
-            {% for category_id, category in category_data.items %}
-                <div class="col-md-4 col-lg-4 col-4 col-xl-4 col-xxl-4 col-xm-4">
-                    <a href="{% url 'ageis_app:jobs_frontend_cat' category.id %}">
-                        <div class="category-card">
-                           
-                             {% if category.image_url %}
-                            <img class="popular-icon" src="{{ category.image_url }}" alt="{{ category.name }}">
-                            {% endif %}
-                            <h3 class="jobs">{{ category.name }}</h3>
-                            <p>{{ category.count }} open positions</p>
-                        </div>
-                    </a>
-                </div>
-            {% empty %}
-                <div class="col-12">
-                    <p>No job categories available.</p>
-                </div>
-            {% endfor %}
+        <div id="categoryContainer" style="overflow: hidden;">
+            <div id="categoryWrapper" style="display: flex; flex-wrap: wrap; transition: transform 0.3s;">
+                {% for category_id, category in category_data.items %}
+                    <div class="col-md-4 col-lg-4 col-4 col-xl-4 col-xxl-4 col-xm-4" style="flex: 0 0 33.333%; max-width: 33.333%; padding: 10px;">
+                        <a href="{% url 'ageis_app:jobs_frontend_cat' category.id %}">
+                            <div class="category-card" style="background-color: #fff; border-radius: 8px; padding: 15px; text-align: center; height: 100%;">
+                                {% if category.image_url %}
+                                <img class="popular-icon" src="{{ category.image_url }}" alt="{{ category.name }}" style="max-width: 60px; margin-bottom: 10px;">
+                                {% endif %}
+                                <h3 class="jobs" style="font-size: 18px; margin-bottom: 5px;">{{ category.name }}</h3>
+                                <p style="font-size: 14px; color: #666;">{{ category.count }} open positions</p>
+                            </div>
+                        </a>
+                    </div>
+                {% empty %}
+                    <div class="col-12">
+                        <p>No job categories available.</p>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
+        <button id="prevBtn" style="position: absolute; left: -35px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer;">&lt;</button>
+        <button id="nextBtn" style="position: absolute; right: -35px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer;">&gt;</button>
     </div>
 </section>
+
+<script>
+    const wrapper = document.getElementById('categoryWrapper');
+    const cards = wrapper.children;
+    let currentIndex = 0;
+
+    function showCards() {
+        for (let i = 0; i < cards.length; i++) {
+            cards[i].style.display = i >= currentIndex && i < currentIndex + 9 ? 'block' : 'none';
+        }
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+        if (currentIndex > 0) currentIndex -= 9;
+        showCards();
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+        if (currentIndex + 9 < cards.length) currentIndex += 9;
+        showCards();
+    });
+
+    showCards();
+</script>
 <!-- Job categories -->
 
 <!-- Recently Searched Jobs -->

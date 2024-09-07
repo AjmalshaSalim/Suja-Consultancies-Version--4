@@ -1122,7 +1122,7 @@ flex-wrap: wrap;
                 {% if not user.is_authenticated %}
                 <div class="nav-item" style="margin-left:40px; margin-top: 5px; margin-bottom: 15px; height:40px; width: 40px; border-radius: 100%; overflow: hidden;">
                     <!-- <a class="nav-link log-color" href="{% url 'ageis_app:login' %}"><button style="background: #3186db; padding-top: 5px; padding-bottom:5px; padding-left: 10px; padding-right: 10px; color: #fff;"> Sign In</button></a> -->
-                    {% if extended_user.profile_photo == true %}
+                    {% if extended_user.profile_photo %}
                     <img src="{{ user.profile_photo.url }}" alt="pro" style="width: 40px; height:40px; bottom:15px; ">
                    {% else %}
                    <img src="{% static 'assets/icons/profile.png' %}" alt="pro" style="width: 40px; height:40px; bottom:15px; margin-top: 5px; margin-left: 4px;">
