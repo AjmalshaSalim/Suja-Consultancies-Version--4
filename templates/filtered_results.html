@@ -36,6 +36,16 @@
   <link rel="icon" type="image/x-icon" href="{% static 'dist/img/favicon.png' %}">
   <link rel="stylesheet" href="{% static 'dist/css/style.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+  .btn-special{
+  background:#1b61a6 !important;
+  color: #fff !important;
+  
+}
+.btn-special:hover{
+    background:#3186db !important; 
+}
+</style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -65,7 +75,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-light-primary elevation-4">
+  <aside class="main-sidebar sidebar-light-special elevation-4">
     <!-- Brand Logo -->
     <a href="{% url 'ageis_app:dashboard' %}"  class="brand-link">
       <img src="{% static 'assets/images/suja-long.png' %}" alt="AdminLTE Logo" class="brand-image">
@@ -212,7 +222,7 @@
                 </a>
             {% endif %}
         </li>
-      
+        <li class="btn btn-special" style="margin-top: 50px;"><a class="dropdown-item" href="{% url 'ageis_app:logout' %}" style="background: transparent; color: white;">Log out</a></li>
               
           
       
@@ -258,7 +268,7 @@
                     <option value="placed">Placed</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Filter</button>
+            <button type="submit" class="btn btn-special">Filter</button>
         </form>
 
         {% if applied_jobs %}

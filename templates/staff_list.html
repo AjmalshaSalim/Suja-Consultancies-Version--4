@@ -97,7 +97,7 @@
                         <label for="phone">Phone</label>
                         <input type="text" class="form-control" id="phone" name="phone" value="{{ staff.extenedusermodel.phone }}" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-special">Save changes</button>
                 </form>
             </div>
         </div>
@@ -157,6 +157,14 @@
   <link rel="stylesheet" href="{% static 'dist/css/style.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
+    .btn-special{
+  background:#1b61a6 !important;
+  color: #fff !important;
+  margin: 8px;
+}
+.btn-special:hover{
+    background:#3186db !important; 
+}
     .popup {
       display: none;
       position: fixed;
@@ -348,7 +356,16 @@
             <p>Completed</p>
             </a>
         </li>
-        
+        <li class="nav-item">
+          {% if request.user.extenedusermodel.user_type != 'staff' %}
+              <a href="{% url 'ageis_app:staff_list' %}" class="nav-link">
+                  <span><img src="{% static 'dist/img/icon/complete.gif' %}" class="nav-icon"></span>
+                  <p>Staff Management</p>
+              </a>
+          {% endif %}
+      </li>
+      <li class="btn btn-special" style="margin-top: 50px;"><a class="dropdown-item" href="{% url 'ageis_app:logout' %}" style="background: transparent; color: white;">Log out</a></li> 
+    
     
             
         
@@ -497,7 +514,7 @@
     <!-- If the user is a manager, set a default value for the user type (e.g., 'staff') -->
     <input type="hidden" name="user_type" value="staff">
   {% endif %}
-          <button type="submit" class="btn btn-primary" name="create_staff">Create Staff</button>
+          <button type="submit" class="btn btn-special" name="create_staff">Create Staff</button>
         </form>
       </div>
     </div>
@@ -588,7 +605,7 @@
           {% else %}
           <option  type="hidden" value="staff" {% if staff.extenedusermodel.user_type == 'staff' %}selected{% endif %}></option>
           {% endif %}
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="submit" class="btn btn-special">Save changes</button>
         </form>
       </div>
     </div>
@@ -598,7 +615,7 @@
 
 
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
+  <footer class="main-footer" style="position: absolute; bottom: -70px; left: 0;">
     <p>Copyright © 2024<a href="https://trivlogic.com/" class="copyright-text-a"
       target="_blank">Trivlogic Pvt Ltd.</a> All rights reserved.</p>
     

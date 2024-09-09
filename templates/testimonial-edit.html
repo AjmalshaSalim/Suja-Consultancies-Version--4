@@ -36,6 +36,15 @@
   <link rel="icon" type="image/x-icon" href="{% static 'dist/img/favicon.png' %}">
   <link rel="stylesheet" href="{% static 'dist/css/style.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+  .btn-special{
+  background:#1b61a6 !important;
+  color: #fff !important;
+}
+.btn-special:hover{
+    background:#3186db !important; 
+}
+</style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -66,7 +75,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{% url 'ageis_app:index' %}" class="brand-link">
+    <a href="{% url 'ageis_app:dashboard' %}" class="brand-link">
       <img src="{% static 'assets/images/suja-long.png' %}" alt="AdminLTE Logo" class="brand-image">
      
     </a>
@@ -185,8 +194,15 @@
               <p>Completed</p>
               </a>
           </li>
-          
-      
+          <li class="nav-item">
+            {% if request.user.extenedusermodel.user_type != 'staff' %}
+                <a href="{% url 'ageis_app:staff_list' %}" class="nav-link">
+                    <span><img src="{% static 'dist/img/icon/complete.gif' %}" class="nav-icon"></span>
+                    <p>Staff Management</p>
+                </a>
+            {% endif %}
+        </li>
+          <li class="btn btn-special" style="margin-top: 50px;"><a class="dropdown-item" href="{% url 'ageis_app:logout' %}" style="background: transparent; color: white;">Log out</a></li>
               
           
       
@@ -282,7 +298,7 @@
                            <div class="card-footer card-cyan">
                             <div class="row mt-4 text-center">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                      <input type="submit" class="btn btn-primary" value="Submit">
+                                      <input type="submit" class="btn btn-special" value="Submit">
                                 </div>
                                
                             </div>

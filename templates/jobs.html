@@ -45,7 +45,13 @@
     position: absolute;
     top: 10px;
 }
-
+.btn-special{
+  background:#1b61a6 !important;
+  color: #fff !important;
+}
+.btn-special:hover{
+    background:#3186db !important; 
+}
   </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -224,7 +230,7 @@
               </a>
           {% endif %}
       </li>
-            
+      <li class="btn btn-special" style="margin-top: 50px;"><a class="dropdown-item" href="{% url 'ageis_app:logout' %}" style="background: transparent; color: white;">Log out</a></li>   
         
     
       </ul>
@@ -268,7 +274,7 @@
                                                 </div>
                                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                                                      <!-- Button trigger modal -->
-                                                        <button type="button" class="btn btn-primary float-lg-right float-md-right" data-toggle="modal" data-target="#exampleModal">
+                                                        <button type="button" class="btn btn-special float-lg-right float-md-right" data-toggle="modal" data-target="#exampleModal">
                                                             Add Jobs
                                                         </button>
                                                         
@@ -408,7 +414,7 @@
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                
-                                                                <input type="submit" class="btn btn-primary">
+                                                                <input type="submit" class="btn btn-special">
                                                                 </div>
                                                             </div>
                                                             </div>

@@ -634,19 +634,20 @@ background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
 }
-.carosel-head{
-  margin-left: 20%;
-  text-align:center;
-  margin-right:auto;
-	margin-top: 14% !important;
-    margin-bottom: 20% !important;
+.carosel-head {
+  width: 50%;
+  margin-left: 10%;
+  text-align: left;
+  margin-right: auto;
+  margin-top: 14% !important;
+  margin-bottom: 20% !important;
   font-weight: 400;
-    letter-spacing: 2px;
-    animation-name: animate;
-    animation-duration: 5s;
-    font-size: 300% !important;
-    color: white !important;
-    z-index: 999 !important;
+  letter-spacing: 2px;
+  animation-name: animate;
+  animation-duration: 5s;
+  font-size: 300% !important;
+  color: black !important;
+  z-index: 999 !important;
 }
 @keyframes animate {
     0%{opacity: 0%;}

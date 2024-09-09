@@ -36,6 +36,15 @@
   <link rel="icon" type="image/x-icon" href="{% static 'dist/img/favicon.png' %}">
   <link rel="stylesheet" href="{% static 'dist/css/style.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+  .btn-special{
+  background:#1b61a6 !important;
+  color: #fff !important;
+}
+.btn-special:hover{
+    background:#3186db !important; 
+}
+</style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -213,7 +222,7 @@
                 </a>
             {% endif %}
         </li>
-      
+        <li class="btn btn-special" style="margin-top: 50px;"><a class="dropdown-item" href="{% url 'ageis_app:logout' %}" style="background: transparent; color: white;">Log out</a></li>
               
           
       
@@ -303,7 +312,7 @@
                            <div class="card-footer card-cyan">
                             <div class="row mt-4 text-center">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                      <input type="submit" class="btn btn-primary" value="Submit">
+                                      <input type="submit" class="btn btn-special" value="Submit">
                                 </div>
                                
                             </div>
