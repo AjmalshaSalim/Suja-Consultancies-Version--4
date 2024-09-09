@@ -3156,10 +3156,18 @@
         font-size: large;
     }
 
-    .full-nav {
-        font-size: 40%;
+    .phn-a{
+    display: none;
     }
 
+    .full-nav {
+        font-size: 81%;
+    }
+
+    #categoryWrapper{
+    display: block;
+    }
+    
     .city-name {
         font-size: 60%;
     }
