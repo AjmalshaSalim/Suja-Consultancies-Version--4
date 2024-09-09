@@ -1120,12 +1120,12 @@ flex-wrap: wrap;
                     </div>
                 </a>
                 {% if not user.is_authenticated %}
-                <div class="nav-item" style="margin-left:40px; margin-top: 5px; margin-bottom: 15px; height:40px; width: 40px; border-radius: 100%; overflow: hidden;">
+                <div class="nav-item" style="margin-left:40px; margin-top: 5px; margin-bottom: 15px; height:40px; width: 40px; border-radius: 100%; overflow: hidden; ">
                     <!-- <a class="nav-link log-color" href="{% url 'ageis_app:login' %}"><button style="background: #3186db; padding-top: 5px; padding-bottom:5px; padding-left: 10px; padding-right: 10px; color: #fff;"> Sign In</button></a> -->
                     {% if extended_user.profile_photo %}
                     <img src="{{ user.profile_photo.url }}" alt="pro" style="width: 40px; height:40px; bottom:15px; ">
                    {% else %}
-                   <img src="{% static 'assets/icons/profile.png' %}" alt="pro" style="width: 40px; height:40px; bottom:15px; margin-top: 5px; margin-left: 4px;">
+                   <img src="{% static 'assets/icons/profile.png' %}" alt="pro" style="width: 40px; height:40px; bottom:15px; ">
                    {% endif %}
                 </div>
                 {% else %}
@@ -2142,7 +2142,7 @@ flex-wrap: wrap;
                 </div>
 
                 <!-- Education popup -->
-                <div class="form-div" id="education-update" style="height: 650px; overflow: hidden;">
+                <div class="form-div" id="education-update" style=" overflow: hidden;">
                     <div class="close-btn" id="education-close-btn">
                         <a href="" class="btn btn-special"><i class="bi bi-x"></i></a>
                     </div>
@@ -2462,7 +2462,7 @@ flex-wrap: wrap;
                             </td>
                             <td style="padding: 12px;">{{ job.applied_date }}</td>
                             <td style="padding: 12px;">
-                                <a href="{% url 'ageis_app:jobs_details' job.applied_job.id %}" style="padding: 8px 12px; background-color: #007bff; color: white; text-decoration: none; border-radius: 4px;">View Job</a>
+                                <a href="{% url 'ageis_app:jobs_details' job.applied_job.id %}" style="padding: 8px 12px; background-color:#1b61a6; color: white; text-decoration: none; border-radius: 4px;">View Job</a>
                             </td>
                         </tr>
                         {% endfor %}
